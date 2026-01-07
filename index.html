@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Desenvolvedora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === Estilos Gerais === */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* === Seção 1: Hero (Cabeçalho) === */
+        .hero-section {
+            background-color: #100517; /* Roxo muito escuro, quase preto */
+            background: linear-gradient(135deg, #100517 0%, #1a0b2e 100%); /* Gradiente sutil */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+            padding-bottom: 100px; /* Espaço para a onda não cobrir o texto */
+        }
+
+        /* Atualização para alinhar o texto e imagem corretamente na altura */
+/* Animação para a imagem flutuar */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.hero-img {
+    width: 80%; /* Ajuste o tamanho da imagem aqui */
+    max-width: 500px;
+    animation: float 6s ease-in-out infinite; /* Efeito de flutuação */
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); /* Sombra suave no PNG */
+}
+
+/* Ajuste de alinhamento de texto responsivo */
+.hero-text-col {
+    text-align: center; /* No celular, centralizado */
+}
+
+/* A partir de telas grandes (lg), alinha o texto à esquerda */
+@media (min-width: 992px) {
+    .hero-text-col {
+        text-align: left;
+        padding-right: 3rem;
+    }
+}
+
+        .hero-content h1 {
+            font-weight: 700;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: -webkit-linear-gradient(#fff, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #d1d1d1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Efeito de Onda (SVG) na borda inferior */
+        .custom-shape-divider-bottom-16789 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+.custom-shape-divider-bottom-16789 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    
+    /* ADICIONE ESTA LINHA ABAIXO: */
+    transform: scaleY(-1); 
+}
+
+        .custom-shape-divider-bottom-16789 .shape-fill {
+            fill: #f8f9fa; /* A mesma cor do fundo da próxima seção */
+        }
+
+        /* === Seção 2: Projetos === */
+        .projects-section {
+            background-color: #f8f9fa; /* Cinza quase branco */
+            padding: 80px 0;
+            min-height: 100vh; /* Ocupa pelo menos a altura da tela */
+        }
+
+        .section-title {
+            color: #100517;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 4px;
+            background: #6c5ce7; /* Roxo destaque */
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Cards dos Projetos */
+        .project-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background: white;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.2);
+        }
+
+        .project-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        .btn-view {
+            color: #6c5ce7;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* === Modais === */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+        }
+        
+        .modal-header {
+            background-color: #100517;
+            color: white;
+            border-bottom: none;
+        }
+
+        .btn-close-white {
+            filter: invert(1);
+        }
+
+        .carousel-item img {
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* === Seção 3: Formação === */
+.education-section {
+    background-color: #100517; /* Volta para o roxo escuro */
+    color: white;
+    padding: 80px 0;
+}
+
+.edu-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    height: 100%;
+    
+    /* CORREÇÃO AQUI: */
+    /* Usamos 'background-color' em vez de apenas 'background' para ser mais específico */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.edu-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1); /* Fica um pouco mais claro ao passar o mouse */
+}
+
+.edu-year {
+    color: #a29bfe; /* Roxo claro para destacar a data */
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.edu-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.edu-school {
+    color: #d1d1d1;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* === Rodapé (Footer) === */
+.footer-section {
+    background-color: #0b0210; /* Um pouco mais escuro que o cabeçalho */
+    color: #b2bec3;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Linha sutil de separação */
+}
+
+.footer-link {
+    color: #a29bfe;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+<header class="hero-section">
+    <div class="container h-100">
+        <div class="row align-items-center h-100 pb-5">
+            
+            <div class="col-lg-6 order-2 order-lg-1 hero-text-col">
+                <div class="hero-content">
+                    <h1>Bem-vind@</h1>
+                    <p>Olá, meu nome é Isabela Marques. Sou desenvolvedora com mais de 5 anos de experiência apaixonada por criar soluções elegantes e eficientes. Especialista em transformar ideias em código limpo e escalável.</p>
+                    <a href="#projetos" class="btn btn-outline-light mt-4 rounded-pill px-4">Ver Projetos</a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 order-1 order-lg-2 text-center mb-4 mb-lg-0">
+                <img src="./image_header.png" 
+                     alt="Ilustração Desenvolvedora" 
+                     class="hero-img img-fluid">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="custom-shape-divider-bottom-16789">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+</header>
+
+    <section class="projects-section" id="projetos">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Projetos Recentes</h2>
+            </div>
+
+            <div class="row g-4">
+                
+                <div class="col-md-4">
+                    <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalProjeto1">
+                        <img src="ct-1.png" class="card-img-top" alt="Projeto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Central do Técnico</h5>
+                            <p class="card-text text-muted">Site para escola de cursos de manutenção de aparelhos.</p>
+                            <span class="btn-view">Ver Detalhes &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalProjeto2">
+                        <img src="cf-1.png" class="card-img-top" alt="Projeto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Casa Feliz</h5>
+                            <p class="card-text text-muted">Site para espaço terapêutico para crianças e adultos autistas.</p>
+                            <span class="btn-view">Ver Detalhes &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalProjeto3">
+                        <img src="cm-1.png" class="card-img-top" alt="Projeto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Laboratório Carminato</h5>
+                            <p class="card-text text-muted">Aplicativo móvel para orçamentos de projetos dentários.</p>
+                            <span class="btn-view">Ver Detalhes &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+<div class="col-md-4">
+                    <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalProjeto4">
+                        <img src="pf-1.jpg" class="card-img-top" alt="Projeto 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Proffy</h5>
+                            <p class="card-text text-muted">Plataforma online para unir professores a alunos.</p>
+                            <span class="btn-view">Ver Detalhes &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalProjeto5">
+                        <img src="st-3.png" class="card-img-top" alt="Projeto 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Stranger Things Wall</h5>
+                            <p class="card-text text-muted">Site interativo de Stranger Things.</p>
+                            <span class="btn-view">Ver Detalhes &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="modalProjeto1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Site Central do Técnico</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselProj1" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/ct-1.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/ct-2.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/ct-3.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/ct-4.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/ct-5.png" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProj1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProj1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <h5>Sobre o projeto</h5>
+                    <p>Site informativo da Central do Técnico e funções de contato com a escola</p>
+                    <p><strong>Tecnologias:</strong> HTML, CSS, Javascript e Bootstrap.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProjeto2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Casa Feliz</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselProj2" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="cf-1.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="cf-2.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="cf-3.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="cf-4.png" class="d-block w-100" alt="...">
+                            </div>
+                             <div class="carousel-item">
+                                <img src="cf-5.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="cf-6.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="cf-7.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="cf-8.png" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProj2" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProj2" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <p>Site informativo para espaço terapêutico para crianças e adultos autistas.</p>
+                    <p><strong>Tecnologias:</strong> HTML, CSS, JavaScript e Bootstrap.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProjeto3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">App Laboratório Carminato</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div id="carouselProj3" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="cm-1.png" class="d-block w-100" alt="Arquitetura">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="cm-2.png" class="d-block w-100" alt="Swagger">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="cm-3.png" class="d-block w-100" alt="Database">
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProj3" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProj3" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                   <p> Aplicativo móvel para orçamentos de projetos dentários, com visão de paciente e laboratório e chat para comunicação interna de ambos usuários. Desenvolvido para IoS e Android.</p>
+                    <p><strong>Tecnologias:</strong> Fluter e Firebase.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProjeto4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sistema de Gestão (ERP)</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselProj4" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="pf-1.jpg" class="d-block w-100" alt="Painel">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="pf-2.jpg" class="d-block w-100" alt="Relatorios">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="pf-3.gif" class="d-block w-100" alt="Relatorios">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="pf-4.jpg" class="d-block w-100" alt="Relatorios">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProj4" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProj4" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <p>Sistema que une de forma online os professores e alunos.</p>
+                    <p><strong>Tecnologias:</strong> HTML, CSS e Javascript.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProjeto5" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Site Stranger Things Wall</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselProj5" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="st-1.gif" class="d-block w-100" alt="App">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="st-2.gif" class="d-block w-100" alt="Mapa">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="st-3.png" class="d-block w-100" alt="Mapa">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProj5" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProj5" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <p>Site interativo que permite usuários a criar sua versão da famosa cena da séria Stranger Things.</p>
+                    <p><strong>Tecnologias:</strong> HTML, CSS e Javascript.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="education-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title text-white">Formação Acadêmica</h2>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="edu-card">
+                    <span class="edu-year">2020 - 2023</span>
+                    <h3 class="edu-title">Sistemas de Informação</h3>
+                    <p class="edu-school">FIAP - Faculdade de Informática e Administração Paulista</p>
+                    <p class="small text-white-50">Foco em desenvolvimento de software, algoritmos e estruturas de dados.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="edu-card">
+                    <span class="edu-year">2022</span>
+                    <h3 class="edu-title">Formação de User Experience</h3>
+                    <p class="edu-school">Alura</p>
+                    <p class="small text-white-50">Aprofundamento em design de interfaces e experiência do usuário.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="edu-card">
+                    <span class="edu-year">2020</span>
+                    <h3 class="edu-title">Curso de Design Gráfico</h3>
+                    <p class="edu-school">FIAP - Faculdade de Informática e Administração Paulista</p>
+                    <p class="small text-white-50">Conhecimentos de design e interface.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section text-center">
+    <div class="container">
+        <p class="mb-1">
+            &copy; 2026 <strong>Isabela Marques</strong>. Todos os direitos reservados.
+        </p>
+        <p class="mb-0">
+            Entre em contato: 
+            <a href="mailto:dev.isabelamarques@gmail.com" class="footer-link">dev.isabelamarques@gmail.com</a>
+        </p>
+    </div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
